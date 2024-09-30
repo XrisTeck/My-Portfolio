@@ -1,0 +1,783 @@
+/* styles.css */
+
+/* Global Styles */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;300;400;500;600&display=swap');
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  main {
+    max-width: 100vw; /* set maximum width to viewport width */
+    overflow-x: hidden; /* hide horizontal overflow */
+  }
+
+  body {
+    font-family: 'Roboto Slab', sans-serif;
+    line-height: 1.6;
+    color: #e4dcdc;
+    background-color: #0c0524;
+    overflow-x: hidden;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 800;
+    margin-bottom: 1px;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #337ab7;
+  }
+  
+  a:hover {
+    color: #bfd309;
+  }
+  
+  /* Header Styles */
+  
+  header {
+    background-color: #130958;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  header nav ul {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  header nav li {
+    margin-right: 20px;
+  }
+  
+  header nav a {
+    color: #fff;
+  }
+  
+  header nav a:hover {
+    color: #ccc;
+  }
+
+  /*nav bar*/
+  .nav-icon {
+    cursor: pointer;
+    display: inline-block; /* Add this line */
+    width: 40px; /* Add this line */
+    height: 40px; /* Add this line */
+    background-color: #ada6a6; /* Add this line */
+    border-radius: 10%; /* Add this line */
+    padding: 10px; /* Add this line */
+    margin-left: 20px;
+  }
+
+
+
+  .nav-icon:hover {
+    color: #7fa009;
+  }
+  
+  .nav-list {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 200px;
+  }
+
+  .nav-list.show{
+    display: block;
+  }
+  
+
+  
+
+  .nav-icon:hover + .nav-list, /* Show the nav list on hover */
+.nav-icon:focus + .nav-list, /* Show the nav list on focus */
+
+.nav-list.show { /* Show the nav list when the 'show' class is added */
+  display: block;
+}
+  
+  .nav-list li {
+    margin-bottom: 10px;
+  }
+  
+  .nav-list a {
+    text-decoration: none;
+    color: #333;
+  }
+  
+  
+  /* Main Styles */
+  
+  main {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    flex-wrap: wrap;
+  }
+  
+  section {
+    background-color: #322372;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 9px;
+    box-shadow: 0 6px 7px rgba(211, 201, 201, 0.1);
+    transition: background-position 1.5s ease-in-out;
+    background-size: 80% auto;
+    background-position: center;
+    position: relative;
+  }
+
+  .section {
+    position: relative;
+  }
+
+  section:hover{
+    transform: scale(1.01);
+    transition: transform 1.1s ease-in-out;
+  }
+  
+  section h2 {
+    margin-top: 0;
+    text-decoration: overline;
+  }
+  
+  section ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  section li {
+    margin-right: 20px;
+    margin-bottom: 20px;
+  }
+  
+  section i {
+    font-size: 24px;
+    margin-right: 10px;
+  }
+
+  #about {
+    display: flex;
+    flex-direction: row; /* Add this line */
+    padding: 20px;
+  }
+
+  #about .section-bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5; 
+  }
+
+
+
+  .about-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    z-index: 1;
+  }
+
+  .text-container {
+    width: 60%;
+    margin-right: 40px;
+  }
+
+  .text-container p {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  
+  #about h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    z-index: 1;
+  }
+  
+  .main_img {
+    width: 30%;
+    margin: 20px;
+    transform: none;
+    transition: transform 1.1s ease-in-out;
+
+  }
+  
+  .main_img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 0 11px rgba(104, 97, 97, 0.2);
+  }
+  
+  .main_img:hover {
+    transform: scale(1.1) rotate(2deg);
+  }
+
+  .my_head {
+    margin-right: 20px;
+  }
+
+ 
+  
+ 
+
+/*Services section styles*/
+
+.services {
+  padding: 40px 40px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 2fr);
+  grid-gap: 40px;
+}
+
+.service {
+  background-color: #4457fd;
+  padding: 30px;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px hwb(0 67% 31% / 0.1);
+}
+
+.service i {
+  font-size: 36px;
+  color: #bdfaab;
+  margin-bottom: 20px;
+}
+
+.service h3 {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.service p {
+  font-size: 16px;
+  color: #ece8e8;
+}
+
+
+  /* Skills Section Styles */
+  
+  .skills {
+    background-color: #322372;
+    width: 100%;
+  }
+
+  .skills .section-bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.4; 
+  }
+  
+  .skills .container .row .col-md-4 {
+    width: 100%;
+    padding-left: 0;
+    padding-bottom: 0;
+    /*z-index: 1;*/
+  }
+  
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    z-index: 1;
+  }
+  
+  .col-md-4 {
+    flex-basis: 40%;
+    margin: 1px;
+    z-index: 1;
+  }
+  
+  h3 {
+    font-weight: bold;
+    margin-top: 0;
+    cursor: pointer;
+    transition: color 1.5s;
+  }
+
+  h3:hover{
+    color: #dfcb19;
+  }
+
+  h2 {
+    font-weight: bold;
+    
+    margin-top: 0;
+    cursor: pointer;
+    transition: color 1.5s;
+  }
+
+  h2:hover{
+    color: #dfcb19;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-left: 1px;
+  }
+  
+  li {
+    margin-bottom: 5px;
+    margin-left: 2px;
+  }
+  
+  .icon-html5, .icon-nodejs, .icon-github {
+    font-size: 24px;
+    margin-right: 10px;
+  }
+  
+  .progress {
+    height: 18px;
+    background-color: #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .progress-bar {
+    background-color: #4CAF50;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    transition: background-color 1.5s ease-in-out;
+  }
+
+  .progress-bar::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%; /* Initial width is 0% */
+    height: 100%;
+    background-color: #81bd12; /* Gradient color */
+    transition: width 1.5s ease-in-out;
+  }
+
+  .progress-bar:hover::before {
+    width: 100%; /* Increase width to 100% on hover */
+  }
+
+  
+  .percentage {
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: 10px;
+  }
+  
+/* Experience Style */
+  /*#experience{
+  
+  }*/
+
+  .experience .section-bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 105%;
+    height: 105%;
+    opacity: 0.5; 
+  }
+
+  .experience .ul {
+    list-style-type: disc; /* Traditional bullet point style */
+    padding-left: 40px; /* Indentation for the list items */
+    padding: 0;
+    margin: 0;
+    display: flex; /* Aligns list items from left to right */
+    justify-content: flex-start; /* Ensures items align to the left */
+  }
+
+  .experience h3{
+    font-size: 18px;
+    text-decoration: underline;
+    padding-left: 30px;
+  }
+
+  .experience p{
+    padding-left: 35px;
+  }
+
+  .experience ul li {
+    margin: 5px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333;
+    list-style-type: none;
+    max-width: 100%;
+  }
+
+        /* Nested list inside each job (responsibilities) */
+.experience ul ul {
+  list-style-type: disc;
+  padding-left: 20px; /* Indentation for nested lists */
+  text-align: left;
+}
+
+  .experience ul ul li {
+    margin: 5px;
+    padding-left: 20px;
+    text-align: left;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333;
+    list-style-type: none;
+    
+  }
+
+.experience li::before {
+  content: "• "; /* Adds a custom bullet point */
+  color: #000000;
+  font-weight: bold;
+}
+
+.
+
+
+
+/* Projects Style */
+  #projects{
+    background-image: url('./img/lpt\ tch.jpg');
+  }
+
+  #projects .section-bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 105%;
+    height: 105%;
+    opacity: 0.5; 
+  }
+
+  .review {
+    padding: 0rem;
+ 
+}
+
+
+.swiper {
+  display: flex; /* Allow horizontal alignment */
+  overflow: hidden; /* Hide overflow */
+}
+
+.swiper-wrapper {
+  display: flex;
+  transition: transform 0.3s ease; /* Smooth transition */
+  overflow: hidden;
+}
+
+.swiper-slide .img-wrapper img{
+  max-width: 100%; /* Ensures the image never exceeds the container */
+  height: auto;    /* Adjust the height automatically */
+  object-fit: cover; /* Ensures the image covers the entire box without stretching */
+  border-radius: 0;
+} 
+
+
+
+
+.swiper-slide .img-wrapper video {
+  max-width: 100%; /* Same for videos */
+  height: 160px;
+    object-fit: cover; /* Ensure images and videos cover the wrapper */
+}
+
+.swiper-slide p {
+    padding: 0.5px 0;
+    line-height: 1.8;
+    color: #666;
+    font-size: 1rem; /* Adjusted font size for better readability */
+}
+
+.review .review-slider .box {     /* would be .swiper-slide*/
+  background: #fff;
+  border-radius: 0.5rem;
+  text-align: center;
+  padding: 1rem; /* Reduced padding for better spacing */
+  outline-offset: -1rem;
+  outline: 0.1rem solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
+  transition: all 0.2s linear;
+  margin: 0 .5px;
+  max-height: 290px;
+}
+
+.review .review-slider .box:hover {
+    outline: 0.2rem solid #130f40;
+    outline-offset: 0rem;
+    cursor: pointer;
+}
+
+
+
+  .categories {
+    display: flex;
+    flex-direction: column; /* Stack categories vertically */
+}
+
+
+.category {
+    margin: 1px 5px; /* Space between categories */
+}
+
+.content-wrapper {
+    overflow: hidden; /* Hide any overflow content */
+    position: relative; /* Positioning context for sliding effect */
+    width: 100%; /* Ensure it takes full width */
+    margin: 0 10px;
+}
+
+
+.swiper {
+    display: flex; /* Allow horizontal alignment */
+    overflow: hidden; /* Hide overflow */
+}
+
+.swiper-slide .img-wrapper {
+  width: 100%;
+  height: 120%; /* Adjust the height to your liking */
+  border-radius: 0; /* Add a border radius to the wrapper */
+  margin-bottom: 50px; /* Margin between image and paragraph */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+/* Ensure box is not stretching */
+.box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  max-width: 300px; /* You can adjust this as needed */
+  margin: auto;
+}
+
+
+
+
+
+
+
+:root{
+    --orange: #f78a2a;
+    --black: #130f40;
+    --light-color: #666;
+    --box-shadow: 0 .5rem 1.5rem rgba(0,0,0,.1);
+    --border: .2rem solid rgba(0,0,0,.1);
+    --outline: .1rem solid rgba(0,0,0,.1);
+    --outline-hover: .2rem solid var(--black);
+
+}
+
+.btn{
+  margin-top: 1rem;
+  display: inline-block;
+  padding: .2px 19px;
+  font-size: 1rem;
+  border-radius: .5rem;
+  border: .01rem solid var(--black);
+  color: var(--black);
+  cursor: pointer;
+}
+
+
+
+.resume-btn {
+  margin-top: 1rem;
+  display: inline-block;
+  padding: 8px 18px;
+  font-size: 12px;
+  align-items: center;
+  border-radius: .5rem;
+  border: .01rem solid var(--black);
+  color: var(--black);
+  cursor: pointer;
+}
+
+.resume-btn:hover {
+  background: var(--orange);
+  color: #fff;
+  transition: 1.2s;
+}
+
+.submit-btn {
+  margin-top: 0px;
+  padding: 5px 20px;
+  font-size: 12px;
+  align-items: center;
+  border-radius: .2rem;
+  border: .01rem solid var(--black);
+  color: var(--black);
+  cursor: pointer;
+}
+
+.submit-btn:hover{
+  background: var(--orange);
+  color: #fff;
+  transition: 1.2s
+}
+
+
+.btn:hover{
+  background: var(--orange);
+  color: #fff;
+  transition: 1s
+}
+
+
+
+.footer .box-container{
+  display: grid;
+  grid-template-columns:  repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.footer .box-container .box{
+  padding: 10px 5px;
+}
+
+.footer .box-container .box h3{
+  font-size: 17px;
+  color: var(--orange);
+  padding: 1rem 0;
+  margin-bottom: 0px;
+}
+
+.footer .box-container .box h3 .fa-shopping-basket{
+  color: var(--orange);
+}
+
+.footer .box-container .box p{
+  line-height: 1;
+  font-size: 14px;
+  color: var(--light-color);
+  padding: .1rem 0;
+}
+
+
+.footer .box-container .box .links{
+  display: block;
+  font-size: 14px;
+  color: var(--light-color);
+  padding: .1rem 0;
+  text-transform: none;
+}
+
+.footer .box-container .box .links i{
+  color: var(--orange);
+  padding-right: .01rem;
+  font-size: 19px;
+}
+
+.footer .box-container .box .links:hover i{
+  padding-right: .5rem;
+}
+
+.footer .box-container .box .share a{
+  height: 3rem;
+  width: 3rem;
+  line-height: 3rem;
+  border-radius: 2rem;
+  font-size: 1.5rem;
+  color: var(--black);
+  margin-left: .1rem;
+  background: #d4d2d2;
+  text-align: center;
+}
+
+.footer .box-container .box .share a:hover{
+  background: var(--orange);
+  color: #ffffff;
+}
+
+.footer .box-container .box #email{
+  width: 80%;
+  margin: 0px 0;
+  padding: 0px;
+  border-radius: .3rem;
+  background: #ffffff;
+  font-size: 14px;
+  color: var(--black);
+  text-transform: none;
+  margin-top: 1px;
+}
+
+.footer .box-container .box #message{
+  width: 80%;
+  padding: 0px;
+  border-radius: .3rem;
+  background: #ffffff;
+  font-size: 14px;
+  color: var(--black);
+  text-transform: none;
+  margin-top: 5px;
+  margin-bottom: 0px;
+}
+
+.footer .credits{
+  text-align: center;
+  margin-top: 5px;
+  padding: .5rem 0;
+  padding-top: .5rem;
+  font-size: 13px;
+  color: var(--black);
+  border-top: var(--border);
+}
+
+.footer .credits span{
+  color: var(--orange);
+  text-transform: none;
+}
+
+.footer {
+  display: block;
+  width: 100%;
+  margin-top: 5px;
+  background: #fff;
+  padding: 5px 5px;
+  border-radius: 9px;
+  box-shadow: 0 6px 7px rgba(211, 201, 201, 0.1);
+  transition: background-position 1.5s ease-in-out;
+  background-size: 80% auto;
+  background-position: center;
+  position: relative;
+}
+
+
+.footer:hover{
+  transform: scale(1.01);
+  transition: transform 1.1s ease-in-out;
+}
