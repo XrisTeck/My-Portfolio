@@ -30,7 +30,7 @@ window.onload = function() {
   const graphicsSwiper = new Swiper('#graphics', {
     loopFillGroupWithBlank: false,
     rewind: true,
-    loopedSlides: 12,
+    loopedSlides: 16,
     loop: true, // Enable loop for infinite scrolling
     spaceBetween: 1, // Space between slides
     rewind: true,
