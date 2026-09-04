@@ -1,129 +1,477 @@
-window.onload = function() {
-  // Initialize Swipers for each category with autoplay and proper spacing
-  const devSwiper = new Swiper('#dev', {
-    loopFillGroupWithBlank: false,
-    loop: true, // Loop through the slides
-    rewind: true,
-    loopedSlides: 7,
-    slidesPerGroup: 1, 
-    spaceBetween: 1, // Space between slides
-    slidesPerView: 3, // Show 3 slides at a time for larger screens
-   // Loop 7slides
-    autoplay: {
-      delay: 4000, // Delay between auto-slides (4 seconds)
-      disableOnInteraction: false, // Allow autoplay to continue after user interaction
-    },
-    breakpoints: {
-      0: {
-        slidesPerView: 1, // On mobile, show 1 slide
-      },
-      768: {
-        slidesPerView: 2, // On tablets, show 2 slides
-      },
-      1020: {
-        slidesPerView: 6.5, // On desktop, show 3 slides
-      },
-    },
+/* Portfolio scripts — loaded by index.updated.html */
 
-  });
+window.onload = function () {
+  const sections = document.querySelectorAll('.page-section');
+  const navPills = document.querySelectorAll('.nav-pill');
+  const navSearch = document.getElementById('navSearch');
+  const navSearchBtn = document.getElementById('navSearchBtn');
+  const navSearchFeedback = document.getElementById('navSearchFeedback');
+  const navSearchWrap = document.querySelector('.nav-search');
+  const themeToggle = document.getElementById('themeToggle');
 
-  const graphicsSwiper = new Swiper('#graphics', {
-    loopFillGroupWithBlank: false,
-    rewind: true,
-    loopedSlides: 16,
-    loop: true, // Enable loop for infinite scrolling
-    spaceBetween: 1, // Space between slides
-    rewind: true,
-    slidesPerView: 3, // Show 3 slides at a time
-    autoplay: {
-      delay: 3500, // 3.5-second autoplay delay
-      disableOnInteraction: false, // Allow autoplay after interactions
-    },
-    breakpoints: {
-      0: {
-        slidesPerView: 3, // 1 slide on small screens
-      },
-      768: {
-        slidesPerView: 4, // 2 slides on medium screens (tablet)
-      },
-      1020: {
-        slidesPerView: 8.5, // 3 slides on large screens (desktop)
-      },
-    },
-  });
+  const sectionLabels = {
+    home: 'Home',
+    about: 'About',
+    services: 'Services',
+    skills: 'Skills',
+    experience: 'Experience',
+    review: 'Projects',
+    contact: 'Contact',
+  };
 
-  const videoSwiper = new Swiper('#videography', {
-    loopFillGroupWithBlank: false,
-    rewind: true,
-    loopedSlides: 6,
-    loop: true, // Loop through the slides continuously
-    spaceBetween: 1, // Space between each slide
-    rewind: true,
-    slidesPerView: 3, // Show 3 slides at a time on large screens
-    autoplay: {
-      delay: 3600, // 3.6-second delay for autoplay
-      disableOnInteraction: false, // Continue autoplay after user interactions
-    },
-    breakpoints: {
-      0: {
-        slidesPerView: 3, // Show 1 slide on small screens
-      },
-      768: {
-        slidesPerView: 4, // Show 2 slides on medium screens
-      },
-      1020: {
-        slidesPerView: 5.5, // Show 3 slides on large screens
-      },
-    },
-  });
+  const sectionMap = {
+    home: 'home',
+    about: 'about',
+    services: 'services',
+    skills: 'skills',
+    experience: 'experience',
+    projects: 'review',
+    project: 'review',
+    review: 'review',
+    work: 'review',
+    contact: 'contact',
+    resume: 'contact',
+  };
 
-  // Handle scroll events for dynamic background position change and skills progress bar animation
-  window.addEventListener('scroll', () => {
-    // Get all section elements for the parallax effect
-    const sections = document.querySelectorAll('.section');
+  const phraseAliases = {
+    'web dev': 'skills',
+    'web developer': 'about',
+    'web development': 'services',
+    developer: 'about',
+    dev: 'skills',
+    design: 'services',
+    designer: 'about',
+    graphics: 'skills',
+    'graphic design': 'services',
+    video: 'skills',
+    videography: 'review',
+    videos: 'review',
+    photography: 'skills',
+    portfolio: 'review',
+    cv: 'contact',
+    email: 'contact',
+    phone: 'contact',
+    javascript: 'skills',
+    python: 'skills',
+    react: 'skills',
+    django: 'skills',
+    wordpress: 'skills',
+    coffee: 'review',
+    calculator: 'review',
+    grocery: 'review',
+    groccery: 'review',
+    finance: 'review',
+    financial: 'review',
+    network: 'experience',
+    telecom: 'experience',
+    grace: 'about',
+    xhristos: 'contact',
+    xristeck: 'about',
+    shopping: 'experience',
+    church: 'experience',
+    studio: 'experience',
+  };
 
-    // Loop through each section
+  let contentIndex = [];
+  let feedbackTimer = null;
+
+  let projectSwipers = [];
+  let swipersInitialized = false;
+
+  function createProjectSwiper(selector) {
+    const el = document.querySelector(selector);
+    if (!el) return null;
+
+    const slideCount = el.querySelectorAll('.swiper-slide').length;
+
+    return new Swiper(selector, {
+      loop: slideCount > 3,
+      spaceBetween: 18,
+      slidesPerView: 1,
+      slidesPerGroup: 1,
+      grabCursor: true,
+      speed: 600,
+      observer: true,
+      observeParents: true,
+      watchOverflow: true,
+      autoplay: {
+        delay: 4500,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true,
+      },
+      navigation: {
+        nextEl: `${selector} .swiper-button-next`,
+        prevEl: `${selector} .swiper-button-prev`,
+      },
+      pagination: {
+        el: `${selector} .swiper-pagination`,
+        clickable: true,
+        dynamicBullets: slideCount > 8,
+      },
+      breakpoints: {
+        640: { slidesPerView: Math.min(2, slideCount) },
+        1024: { slidesPerView: Math.min(3, slideCount) },
+      },
+    });
+  }
+
+  function initProjectSwipers() {
+    if (!swipersInitialized) {
+      projectSwipers = ['#dev', '#graphics', '#videography']
+        .map(createProjectSwiper)
+        .filter(Boolean);
+      swipersInitialized = true;
+      return;
+    }
+
+    projectSwipers.forEach((swiper) => {
+      swiper.update();
+      if (swiper.autoplay && !swiper.autoplay.running) {
+        swiper.autoplay.start();
+      }
+    });
+  }
+
+  function buildContentIndex() {
+    contentIndex = [];
+
     sections.forEach((section) => {
-      const sectionTop = section.offsetTop; // Get the top offset of the section
-      const sectionHeight = section.offsetHeight; // Get the height of the section
-      const scrollPosition = window.scrollY; // Get the current scroll position
+      const sectionId = section.id;
+      if (!sectionId) return;
 
-      // Check if the current scroll position is within the section's bounds
-      if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-        // Calculate and set the background position to create a parallax effect
-        const backgroundPosition = `center ${scrollPosition - sectionTop}px`;
-        section.style.backgroundPosition = backgroundPosition;
+      const contentRoot =
+        section.querySelector('.inner-panel, .hero-content, .contact-panel') || section;
+      const text = contentRoot.innerText.replace(/\s+/g, ' ').trim().toLowerCase();
+      const heading = section.querySelector('.section-header h2, .heading, .hero-title');
+      const label = heading?.innerText.replace(/\s+/g, ' ').trim() || sectionLabels[sectionId] || sectionId;
+
+      contentIndex.push({ sectionId, label, text });
+    });
+  }
+
+  function clearSearchHighlights() {
+    document.querySelectorAll('.search-highlight').forEach((mark) => {
+      const parent = mark.parentNode;
+      if (!parent) return;
+      parent.replaceChild(document.createTextNode(mark.textContent), mark);
+      parent.normalize();
+    });
+  }
+
+  function getSearchTerms(query) {
+    const normalized = query.trim().toLowerCase();
+    const terms = normalized.split(/\s+/).filter((term) => term.length > 1);
+    return terms.length ? terms : normalized ? [normalized] : [];
+  }
+
+  function highlightSearchTerms(sectionId, query) {
+    clearSearchHighlights();
+
+    const section = document.getElementById(sectionId);
+    const terms = getSearchTerms(query);
+    if (!section || !terms.length) return;
+
+    const replacements = [];
+    const walker = document.createTreeWalker(section, NodeFilter.SHOW_TEXT, {
+      acceptNode(node) {
+        if (!node.textContent.trim()) return NodeFilter.FILTER_REJECT;
+        if (node.parentElement?.closest('.nav-dock, .swiper-button-prev, .swiper-button-next, .swiper-pagination')) {
+          return NodeFilter.FILTER_REJECT;
+        }
+        return NodeFilter.FILTER_ACCEPT;
+      },
+    });
+
+    let node = walker.nextNode();
+    while (node) {
+      const text = node.textContent;
+      const lower = text.toLowerCase();
+      let matchIndex = -1;
+      let matchLength = 0;
+
+      terms.forEach((term) => {
+        const index = lower.indexOf(term);
+        if (index !== -1 && (matchIndex === -1 || index < matchIndex)) {
+          matchIndex = index;
+          matchLength = term.length;
+        }
+      });
+
+      if (matchIndex !== -1) {
+        replacements.push({ node, matchIndex, matchLength });
+      }
+
+      node = walker.nextNode();
+    }
+
+    let firstHighlight = null;
+    replacements.forEach(({ node, matchIndex, matchLength }) => {
+      const text = node.textContent;
+      const before = text.slice(0, matchIndex);
+      const match = text.slice(matchIndex, matchIndex + matchLength);
+      const after = text.slice(matchIndex + matchLength);
+      const fragment = document.createDocumentFragment();
+
+      if (before) fragment.appendChild(document.createTextNode(before));
+
+      const mark = document.createElement('mark');
+      mark.className = 'search-highlight';
+      mark.textContent = match;
+      fragment.appendChild(mark);
+
+      if (after) fragment.appendChild(document.createTextNode(after));
+      node.parentNode.replaceChild(fragment, node);
+
+      if (!firstHighlight) firstHighlight = mark;
+    });
+
+    if (firstHighlight) {
+      setTimeout(() => {
+        firstHighlight.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 120);
+    }
+  }
+
+  function showSearchFeedback(message, state) {
+    if (!navSearchFeedback) return;
+
+    clearTimeout(feedbackTimer);
+    navSearchFeedback.hidden = false;
+    navSearchFeedback.textContent = message;
+    navSearchFeedback.className = `nav-search-feedback is-${state}`;
+
+    if (navSearchWrap) {
+      navSearchWrap.classList.toggle('is-error', state === 'error');
+    }
+
+    if (state !== 'error') {
+      feedbackTimer = setTimeout(() => {
+        navSearchFeedback.hidden = true;
+        navSearchFeedback.textContent = '';
+      }, 4500);
+    }
+  }
+
+  function resolveSectionByName(query) {
+    const value = query.trim().toLowerCase();
+    if (!value) return null;
+
+    if (sectionMap[value]) {
+      return {
+        sectionId: sectionMap[value],
+        message: `Opening ${sectionLabels[sectionMap[value]]}…`,
+        highlight: false,
+      };
+    }
+
+    for (const [key, sectionId] of Object.entries(sectionMap)) {
+      if (value.includes(key)) {
+        return {
+          sectionId,
+          message: `Opening ${sectionLabels[sectionId]}…`,
+          highlight: false,
+        };
+      }
+    }
+
+    return null;
+  }
+
+  function resolveSectionByPhrase(query) {
+    const value = query.trim().toLowerCase();
+    if (!value) return null;
+
+    if (phraseAliases[value]) {
+      const sectionId = phraseAliases[value];
+      return {
+        sectionId,
+        message: `"${query.trim()}" → ${sectionLabels[sectionId]}`,
+        highlight: true,
+      };
+    }
+
+    for (const [phrase, sectionId] of Object.entries(phraseAliases)) {
+      if (value.includes(phrase)) {
+        return {
+          sectionId,
+          message: `"${query.trim()}" → ${sectionLabels[sectionId]}`,
+          highlight: true,
+        };
+      }
+    }
+
+    return null;
+  }
+
+  function searchSectionContent(query) {
+    const terms = getSearchTerms(query);
+    if (!terms.length) return null;
+
+    let bestMatch = null;
+    let bestScore = 0;
+
+    contentIndex.forEach((entry) => {
+      let score = 0;
+
+      terms.forEach((term) => {
+        if (entry.text.includes(term)) score += term.length;
+        if (entry.label.toLowerCase().includes(term)) score += 6;
+      });
+
+      if (score > bestScore) {
+        bestScore = score;
+        bestMatch = entry;
       }
     });
 
-    // Skills section progress bars
-    const skillsSection = document.querySelector('.skills'); // Get the skills section
-    const progressBars = document.querySelectorAll('.progress-bar'); // Get all progress bars in the skills section
+    if (!bestMatch || bestScore < 3) return null;
 
-    // Get the bottom of the viewport (window's scrollY + viewport height)
+    return {
+      sectionId: bestMatch.sectionId,
+      message: `Found "${query.trim()}" in ${sectionLabels[bestMatch.sectionId]}`,
+      highlight: true,
+    };
+  }
+
+  function resolveSearch(query) {
+    const trimmed = query.trim();
+    if (!trimmed) {
+      return { type: 'empty' };
+    }
+
+    const directMatch = resolveSectionByName(trimmed);
+    if (directMatch) {
+      return { type: 'match', ...directMatch };
+    }
+
+    const phraseMatch = resolveSectionByPhrase(trimmed);
+    if (phraseMatch) {
+      return { type: 'match', ...phraseMatch };
+    }
+
+    const contentMatch = searchSectionContent(trimmed);
+    if (contentMatch) {
+      return { type: 'match', ...contentMatch };
+    }
+
+    return {
+      type: 'none',
+      message: `No section found for "${trimmed}". Try: about, web dev, react, coffee shop, contact.`,
+    };
+  }
+
+  function runNavSearch() {
+    const query = navSearch.value;
+    const result = resolveSearch(query);
+
+    if (result.type === 'empty') {
+      showSearchFeedback('Type a section name or keyword to search.', 'info');
+      return;
+    }
+
+    if (result.type === 'none') {
+      showSearchFeedback(result.message, 'error');
+      return;
+    }
+
+    showSearchFeedback(result.message, 'success');
+    showSection(result.sectionId, { fromSearch: true });
+
+    if (result.highlight) {
+      requestAnimationFrame(() => {
+        setTimeout(() => highlightSearchTerms(result.sectionId, query), 150);
+      });
+    }
+  }
+
+  function showSection(sectionId, options = {}) {
+    if (!options.fromSearch) {
+      clearSearchHighlights();
+      if (navSearchFeedback) {
+        navSearchFeedback.hidden = true;
+        navSearchFeedback.textContent = '';
+      }
+      if (navSearchWrap) navSearchWrap.classList.remove('is-error');
+    }
+
+    sections.forEach((section) => {
+      section.classList.toggle('active', section.id === sectionId);
+    });
+
+    navPills.forEach((pill) => {
+      pill.classList.toggle('active', pill.dataset.section === sectionId);
+    });
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    if (sectionId === 'review') {
+      requestAnimationFrame(() => {
+        setTimeout(initProjectSwipers, 80);
+      });
+    }
+  }
+
+  buildContentIndex();
+
+  document.addEventListener('click', (event) => {
+    const trigger = event.target.closest('[data-section]');
+    if (!trigger) return;
+
+    event.preventDefault();
+    showSection(trigger.dataset.section);
+  });
+
+  navSearchBtn.addEventListener('click', runNavSearch);
+
+  navSearch.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      runNavSearch();
+    }
+  });
+
+  navSearch.addEventListener('input', () => {
+    if (navSearchWrap) navSearchWrap.classList.remove('is-error');
+    if (navSearchFeedback?.classList.contains('is-error')) {
+      navSearchFeedback.hidden = true;
+      navSearchFeedback.textContent = '';
+    }
+  });
+
+  document.body.classList.remove('light-theme');
+
+  if (themeToggle) {
+    themeToggle.disabled = true;
+    themeToggle.setAttribute('aria-disabled', 'true');
+  }
+
+  window.addEventListener('scroll', () => {
+    const skillsSection = document.querySelector('.skills');
+    if (!skillsSection) return;
+
+    const progressBars = document.querySelectorAll('.progress-bar');
     const scrollPosition = window.scrollY + window.innerHeight;
-    const skillsSectionTop = skillsSection.offsetTop; // Get the top offset of the skills section
+    const skillsSectionTop = skillsSection.offsetTop;
 
-    // Check if the user has scrolled past the skills section
     if (scrollPosition > skillsSectionTop) {
-      // Loop through each progress bar and set its width based on the data-width attribute
       progressBars.forEach((progressBar) => {
-        const width = progressBar.getAttribute('data-width'); // Get the target width from the data-width attribute
-        progressBar.style.width = `${width}%`; // Set the width of the progress bar
+        const width = progressBar.getAttribute('data-width') || progressBar.style.width;
+        if (width) progressBar.style.width = width.includes('%') ? width : `${width}%`;
       });
     }
   });
 
-  // Toggle the visibility of navigation lists when clicking on nav icons (for mobile/compact menus)
-  const navIcons = document.querySelectorAll('.nav-icon'); // Select all navigation icons
-  const navLists = document.querySelectorAll('.nav-list'); // Select all navigation lists
+  const contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    contactForm.addEventListener('submit', (event) => {
+      event.preventDefault();
 
-  // Loop through each navigation icon
-  navIcons.forEach((navIcon, index) => {
-    // Add a click event listener for each navigation icon
-    navIcon.addEventListener('click', () => {
-      // Toggle the 'show' class on the corresponding navigation list (based on index)
-      navLists[index].classList.toggle('show');
+      const senderEmail = contactForm.querySelector('[name="email"]').value.trim();
+      const message = contactForm.querySelector('[name="message"]').value.trim();
+      const subject = encodeURIComponent(`Portfolio message from ${senderEmail}`);
+      const body = encodeURIComponent(`From: ${senderEmail}\n\n${message}`);
+
+      window.location.href = `mailto:damzchristo@gmail.com?subject=${subject}&body=${body}`;
     });
-  });
+  }
 };

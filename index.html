@@ -1,4 +1,4 @@
-<!-- index.html -->
+<!-- index.updated.html — main portfolio entry point -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,54 +14,88 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script>
   </head>
   <body>
-    <header>
-      <nav>
-        <div class="nav-icon">
-          <i class="fas fa-bars"></i>
+    <button class="theme-toggle" id="themeToggle" type="button" disabled aria-label="Dark mode" aria-disabled="true" title="Dark mode">
+      <i class="fas fa-moon"></i>
+    </button>
+
+    <main class="app-shell">
+      <!-- Hero Home -->
+      <section id="home" class="page-section active">
+        <a class="resume-home" href="https://drive.google.com/file/d/1irAAUbJgT9n5ek_9WzVq3ykt6CI_W9wl/preview" target="_blank" rel="noopener">Resume</a>
+
+        <div class="hero-side-text hero-side-left">
+          <span>DDAMULIRA</span>
+          <span>GRACE</span>
         </div>
-        <ul class="nav-list">
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
+        <div class="hero-side-text hero-side-right">
+          <span>WEB</span>
+          <span>DEVELOPER</span>
+        </div>
 
-      <h3 class="my_head">{-xristeck.co-}</h3> <!--https://drive.google.com/file/d/1irAAUbJgT9n5ek_9WzVq3ykt6CI_W9wl/view?usp=sharing-->
-      <button class="resume-btn"><a href="https://drive.google.com/file/d/1irAAUbJgT9n5ek_9WzVq3ykt6CI_W9wl/preview">Resume</a></button>
-    </header>
+        <div class="hero-content">
+          <div class="hello-badge">
+            <span class="hello-lines"></span>
+            <span>Hello!</span>
+          </div>
 
-    <main>
-      <section id="about">
-      <img src="./img/lpt tch.jpg" alt="" class="section-bg">
-      <!-- <h2>About</h2> -->
-      <div class="about-container">
-        <div class="text-container">
+          <h1 class="hero-title">
+            I'm <span class="hero-name">Chris</span>, Fullstack Developer
+          </h1>
+
+          <div class="hero-center">
+            <div class="hero-photo-ring">
+              <img src="./img/my%20pix.jpg" alt="Ddamulira Grace Christopher">
+            </div>
+          </div>
+
+          <div class="hero-bottom-row">
+            <blockquote class="hero-quote">
+              <i class="fas fa-quote-left"></i>
+              <p>Passionate about building engaging web experiences, creative design, and innovative IT solutions.</p>
+              <cite>Ddamulira Grace Christopher — -xhristoz-</cite>
+            </blockquote>
+
+            <div class="hero-actions">
+              <button class="btn-primary" data-section="about">More About Me</button>
+              <button class="btn-outline" data-section="review">See My Work</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="page-section inner-page">
+      <div class="section-header">
+        <button class="back-home" data-section="home"><i class="fas fa-arrow-left"></i> Home</button>
+        <h2>About</h2>
+      </div>
+      <div class="inner-layout about-layout">
+        <span class="inner-watermark inner-watermark-left">ABOUT</span>
+        <div class="inner-panel about-panel">
           <p>I'm Ddamulira Grace Christopher, <br>
             A Web Dev, Graphics designer and IT Specialist with over 3years of experience in designing visually engaging content, 
             developing websites, and managing IT systems. Proven ability to support and maintain network infrastructure, 
             resolve technical challenges, and optimize rational and structured data management using database. 
             Passionate about teamwork, leadership, and continuous learning, with a commitment to educational and developmental research. 
             Recently expanded expertise into network performance analysis and real-time application development, 
-            focusing on facial recognition systems and database integration for innovative solutions.
+          and database integration for innovative solutions.
           </p>
         </div>
-        <div class="main_img">
-          <img src="./img/home.jpeg" alt="home pic">
-        </div>
+        <span class="inner-watermark inner-watermark-right">-xristeck.co-</span>
       </div>
       </section>
 
       <!--Services-->
-      <section class="services" id="services">
-      <div class="container">
+      <section class="services page-section inner-page" id="services">
+      <div class="section-header">
+        <button class="back-home" data-section="home"><i class="fas fa-arrow-left"></i> Home</button>
         <h2 class="section-title">Services</h2>
+      </div>
+      <div class="inner-panel">
+      <div class="container">
         <div class="services-grid">
           <div class="service">
             <i class="fas fa-code"></i>
-            <h3>Web Development/Programing</h3>
+            <h3>Development/Programing</h3>
             <p>Build and Develop Web sites and Web applications using HTML, CSS,
               JavaScript, Python(Django), MERN, Java, WordPress, and Wix
             </p>
@@ -80,17 +114,27 @@
               Adobe Premier Pro, Capcut, Photoshop, LightRoom.
             </p>
           </div>
-          <!-- Add more services here -->
+          <div class="service">
+            <i class="fas fa-broadcast-tower"></i>
+            <h3>RF Network Performance &amp; Optimization</h3>
+            <p>Drive testing, KPI-driven analysis, and LTE/4G/5G network optimization. Proficient in TEMS,
+              iMaster, and ElasticNet with NOC operations and network quality troubleshooting.
+            </p>
+          </div>
         </div>
+      </div>
       </div>
       </section>
       <!--services section ends-->
 
       <!-- Skills Section Starts-->
-      <section class="skills" id="skills">
-        <img src="./img/lpt tch.jpg" alt="" class="section-bg">
-        <div class="container">
+      <section class="skills page-section inner-page" id="skills">
+        <div class="section-header">
+          <button class="back-home" data-section="home"><i class="fas fa-arrow-left"></i> Home</button>
           <h2 class="section-title">Skills</h2>
+        </div>
+        <div class="inner-panel skills-panel">
+        <div class="container">
           <div class="row">
 
             <div class="col-md-4">
@@ -346,154 +390,177 @@
             </div>
           </div>
         </div>
+        </div>
       </section>
 
       <!-- Skills Section Ends-->
 
       <!-- Experience Section Starts -->
-      <section class="experience" id="experience">
+      <section class="experience page-section inner-page" id="experience">
+      <div class="section-header">
+        <button class="back-home" data-section="home"><i class="fas fa-arrow-left"></i> Home</button>
+        <h2>Experience</h2>
+      </div>
       <!--<img src="./img/lpt tch.jpg" alt="" class="section-bg">-->
-      <h2>Experience</h2>
+      <div class="inner-panel experience-panel">
       <ul>
         <li>
-          <h3>Report Analyst – SSV Network Analyst, at Emerald Telecom,</h3>
-          <p>Nov, 2023 - Date</p>
-          <ul>
+          <h3>RF Network Performance &amp; Optimization Analyst (DT Report Analyst), <span class="experience-at">at Telezen</span></h3>
+          <p>October 2025 – Present</p>
+          <ol class="experience-details">
+            <li>Execute drive test campaigns for Single Site Verification (SSV) and cluster optimization using TEMS and Actix.</li>
+            <li>Analyze RF KPIs including handover success rates, coverage gaps, and call drop ratios to drive network improvements.</li>
+            <li>Produce comprehensive Drive Test reports and technical analysis to effectively optimize site coverage and quality.</li>
+            <li>Collaborate with engineering teams to resolve escalated network quality complaints and performance bottlenecks.</li>
+          </ol>
+        </li>
+      </ul>
+
+      <ul>
+        <li>
+          <h3>Report Analyst – SSV Network Analyst, <span class="experience-at">at Emerald Telecom</span></h3>
+          <p>November 2023 – August 2025</p>
+          <ol class="experience-details">
             <li>Conducted in-depth analysis of network performance metrics and service quality for Single Site Verification (SSV) reports.</li>
             <li>Prepared and presented detailed reports on network health, identifying optimization opportunities and recommending solutions.</li>
             <li>Monitored and evaluated Key Performance Indicators (KPIs) to ensure high service standards.</li>
-            <li>Streamlined reporting processes, reducing analysis time by 20%.</li>
-            <li>Identified critical handover problems, leading to a 15% increase in network efficiency.</li>
+            <li>Streamlined reporting processes, reducing analysis time by 20%.</li>
+            <li>Identified critical handover problems, leading to a 15% increase in network efficiency.</li>
             <li>Collaborated with engineering teams to resolve coverage and handover issues, enhancing network reliability.</li>
-          </ul>
+          </ol>
         </li>
       </ul>
 
       <ul>
         <li>
-          <h3>Web Dev and IT Specialist, Graphics Designer, at Shopping China Ug</h3>
-          <p>Jan,2022 to Nov,2023</p>
-          <ul>
-            <li>Developed creative marketing visual concepts for the company's online market, enhancing brand visibility and customer engagement.</li>
-            <li>Designed and maintained the company website <a href="https://www.shoppingchina.ug/" target="_blank">shoppingchina.ug</a>
-            , launched in 2022 improving user experience and increased traffic.</li>
-            <li>Maintained and supported the company’s LAN/WAN networks, ensuring reliable system performances and network uptime by implementing basic troubleshooting protocols.</li>
-            <li>Provided IT support for hardware and software issues, resolving technical challenges efficiently.</li>
-              
-          </ul>
-        </li>
-      </ul>
-
-      <ul>
-        <li>
-          <h3>Smart School Registration System, Self-initiated project.</h3>
+          <h3>Smart School Vision, <span class="experience-at">at Dych Technologies.</span></h3>
           <p>2024</p>
-          <ul>
-            <li>Developed a school registration system to streamline student registration, attendance tracking, and facial recognition integration.</li>
+          <ol class="experience-details">
+            <li>Developed a school registration system to streamline student registration, and attendance tracking.</li>
             <li>Designed and implemented core functionalities, including student registration with auto-incrementing IDs, check-in/check-out systems, and database management.</li>
             <li>Created a scalable system architecture suitable for real-world implementation in schools.</li>
-            <li>Integrated facial recognition for attendance tracking using Open CV Cascade Classifier.</li>
             <li>Enhanced database performance with optimized queries and dual storage systems.</li>
 
-            <ul>Technologies Include:
-              <li>Programming: Java (Open CV for facial recognition, JDBC for database connections).</li>
-              <li>Databases: PostgreSQL (main data storage) and MongoDB (facial recognition logs).</li>
-              <li>Tools: IntelliJ IDEA, Maven.</li>
-            </ul>
+            <li><strong>Technologies Include:</strong></li>
+            <li>Programming: Java (JDBC for database connections).</li>
+            <li>Databases: PostgreSQL (main data storage) and MongoDB.</li>
+            <li>Tools: IntelliJ IDEA, Maven, GitHub.</li>
               
-          </ul>
+          </ol>
         </li>
       </ul>
 
       <ul>
         <li>
-          <h3>Church Static and Motion Graphics Designer, at Pursuers of Heaven Church, Nansana, Kabulengwa</h3>
-          <p>2021 to Present</p>
-          <ul>
-            <li>Responsible for creating and delivering all church graphics, including event posters, banners, and motion graphics, ensuring timely completion for each church event and celebration.</li>
-            <li>Utilized various design software to produce high-quality content that aligns with the church's mission and vision.</li>
-          </ul>
-        </li>
-      </ul>
-
-      <ul>
-        <li>
-          <h3>Production Manager, Friends Jam Studio</h3>
+          <h3>Production Manager (Part time), <span class="experience-at">at Friends Jam Studio</span></h3>
           <p>2022 to May 2024</p>
-          <ul>
+          <ol class="experience-details">
             <li>Led and coordinated music and video production processes from concept to final release, ensuring projects were completed on time and within budget.</li>
             <li>Directed and managed a multidisciplinary team, including musicians, videographers, and sound engineers, to deliver high-quality content.</li>
             <li>Oversaw all aspects of music direction, including arranging, composing, and editing musical scores to fit video and production requirements.</li>
             <li>Managed post-production editing and final mastering to ensure flawless audio-visual output.</li>
             <li>Collaborated with clients to understand their vision and provided creative direction to meet their expectations.</li>
             
-          </ul>
+          </ol>
         </li>
       </ul>
+
+      <ul>
+        <li>
+          <h3>Web Dev and IT Specialist, Graphics Designer, <span class="experience-at">at Shopping China Ug</span></h3>
+          <p>Jan,2022 to Nov,2023</p>
+          <ol class="experience-details">
+            <li>Developed creative marketing visual concepts for the company's online market, enhancing brand visibility and customer engagement.</li>
+            <li>Designed and maintained the company website <a href="https://www.shoppingchina.ug/" target="_blank">shoppingchina.ug</a>, launched in 2022 improving user experience and increased traffic.</li>
+            <li>Maintained and supported the company’s LAN/WAN networks, ensuring reliable system performances and network uptime by implementing basic troubleshooting protocols.</li>
+            <li>Provided IT support for hardware and software issues, resolving technical challenges efficiently.</li>
+              
+          </ol>
+        </li>
+      </ul>
+
+      <ul>
+        <li>
+          <h3>Church Static and Motion Graphics Designer (Part time), <span class="experience-at">at Pursuers of Heaven Church, Nansana, Kabulengwa</span></h3>
+          <p>2021 to Present</p>
+          <ol class="experience-details">
+            <li>Responsible for creating and delivering all church graphics, including event posters, banners, and motion graphics, ensuring timely completion for each church event and celebration.</li>
+            <li>Utilized various design software to produce high-quality content that aligns with the church's mission and vision.</li>
+          </ol>
+        </li>
+      </ul>
+      </div>
       </section>
       <!-- Experience Section Ends -->
 
 
-        <div class="review" id="review">
-          <h2 class="heading">Projects</h2>
+        <section class="review page-section inner-page" id="review">
+          <div class="section-header">
+            <button class="back-home" data-section="home"><i class="fas fa-arrow-left"></i> Home</button>
+            <h2 class="heading">Projects</h2>
+          </div>
         
+          <div class="inner-panel projects-panel">
           <div class="categories">
               <!-- Development -->
-              <div class="category dev" >
+              <div class="category dev">
               <h3>Dev</h3>
               <div class="content-wrapper">
-                <div class="swiper review-slider" id="dev">
+                <div class="swiper review-slider project-slider" id="dev">
                   <div class="swiper-wrapper">
                     <div class="swiper-slide box">
                         <div class="img-wrapper">
-                          <img src="./img/Grocco home.jpg" alt="">
-                          <p>Groccery Online Store with HTML/CSS/JS. View site <a href="https://online-groccery.vercel.app/">here...</a></p>
+                          <img src="./img/Grocco home.jpg" alt="Groccery Online Store homepage">
+                          <p>Groccery Online Store with HTML/CSS/JS.</p>
+                          <a href="https://online-groccery.vercel.app/" target="_blank" rel="noopener" class="btn project-link">View Live Site</a>
                         </div>
                     </div>
                     <div class="swiper-slide box">
                         <div class="img-wrapper">
-                          <img src="./img/Grocco Features.jpg" alt="">
-                          <p>Online Store Feature Section. View site <a href="https://online-groccery.vercel.app/">here...</a></p>
+                          <img src="./img/Grocco Features.jpg" alt="Groccery store features section">
+                          <p>Online Store Feature Section.</p>
+                          <a href="https://online-groccery.vercel.app/" target="_blank" rel="noopener" class="btn project-link">View Live Site</a>
                         </div>
                     </div>
                     <div class="swiper-slide box">
                         <div class="img-wrapper">
-                          <img src="./img/Grocco Footer.jpg" alt="">
-                          <p>Online payment transactions.   View site <a href="https://online-groccery.vercel.app/">here...</a></p>
+                          <img src="./img/Grocco Footer.jpg" alt="Groccery store footer and payment section">
+                          <p>Online payment transactions.</p>
+                          <a href="https://online-groccery.vercel.app/" target="_blank" rel="noopener" class="btn project-link">View Live Site</a>
                         </div>
                     </div>
                     <div class="swiper-slide box">
                         <div class="img-wrapper">
-                          <img src="./img/calc.png.jpg" alt="">
-                          <p>Mathematical Calculator with JavaScript. View proj <a href="https://github.com/XrisTeck/Calculator-with-JS.git">here...</a></p>
+                          <img src="./img/calc.png.jpg" alt="JavaScript calculator project">
+                          <p>Mathematical Calculator with JavaScript.</p>
+                          <a href="https://github.com/XrisTeck/Calculator-with-JS" target="_blank" rel="noopener" class="btn project-link">View Live Site</a>
                         </div>
                     </div>
                     <div class="swiper-slide box">
                         <div class="img-wrapper">
-                          <img src="./img/coffee shop blog.jpg" alt="">
-                          <p>Coffee Shop online application blog section. View site <a href="">here...</a></p>
+                          <img src="./img/coffee shop blog.jpg" alt="Coffee shop blog section">
+                          <p>Coffee Shop online application blog section.</p>
+                          <a href="https://coffee-shop-portfolio-alpha.vercel.app/" target="_blank" rel="noopener" class="btn project-link">View Live Site</a>
                         </div>
                     </div>
                     <div class="swiper-slide box">
                         <div class="img-wrapper">
-                          <img src="./img/coffee prdcts.jpg" alt="">
-                          <p>Coffee Shop products Section. View site <a href="">here...</a></p>
+                          <img src="./img/coffee prdcts.jpg" alt="Coffee shop products section">
+                          <p>Coffee Shop products Section.</p>
+                          <a href="https://coffee-shop-portfolio-alpha.vercel.app/" target="_blank" rel="noopener" class="btn project-link">View Live Site</a>
                         </div>
                     </div>
                     <div class="swiper-slide box">
-                      <div class="img-wrapper">
-                        <img src="./img/coffee prdcts.jpg" alt="">
-                        <p>Coffee Shop products Section. View site <a href="">here...</a></p>
-                      </div>
+                        <div class="img-wrapper">
+                          <img src="./img/Finacial_Tracker-app.jpg" alt="Financial Tracker app dashboard">
+                          <p>Financial_Tracker-app — multi-user business finance tracker.</p>
+                          <a href="https://harvest-steward-multi-user-business-tan.vercel.app/dashboard" target="_blank" rel="noopener" class="btn project-link">View Live Site</a>
+                        </div>
+                    </div>
                   </div>
-                  <div class="swiper-slide box">
-                    <div class="img-wrapper">
-                      <img src="./img/coffee prdcts.jpg" alt="">
-                      <p>Coffee Shop products Section. View site <a href="">here...</a></p>
-                    </div>
-                </div>
-                            <!-- Add more slides for Development -->
-                  </div>
+                  <div class="swiper-button-prev"></div>
+                  <div class="swiper-button-next"></div>
+                  <div class="swiper-pagination"></div>
                 </div>
               </div>
               </div>
@@ -502,130 +569,131 @@
               <div class="category graphics">
                 <h3>Graphics</h3>
                 <div class="content-wrapper">
-                    <div class="swiper review-slider" id="graphics">
+                    <div class="swiper review-slider project-slider" id="graphics">
                         <div class="swiper-wrapper">
 
                             <div class="swiper-slide box">
                                 <div class="img-wrapper">
-                                    <img src="./img/2022 Xmass.jpg" alt="">
-                                      <!-- Button that links to the image -->
-                                      <a href="https://drive.google.com/uc?export=view&id=1s_1XGeFA5GENB-2jUMBgXllkleyBa_15" target="_blank" class="btn"> <p>View Design</p> </a>
+                                    <img src="./img/2022 Xmass.jpg" alt="2022 Christmas design">
+                                    <a href="https://drive.google.com/uc?export=view&id=1s_1XGeFA5GENB-2jUMBgXllkleyBa_15" target="_blank" rel="noopener" class="btn project-link">View Design</a>
                                 </div>
                             </div>
 
                             <div class="swiper-slide box">
                                 <div class="img-wrapper">
-                                    <img src="./img/Bonte cycle 2fin.jpg" alt="">
-                                    <a href="https://drive.google.com/uc?export=view&id=1pjsNHrcm5wTMdPM3sl8h8VEYpMRLwgth" target="_blank" class="btn"> <p>View Design</p> </a>
+                                    <img src="./img/Bonte cycle 2fin.jpg" alt="Bonte cycle design">
+                                    <a href="https://drive.google.com/uc?export=view&id=1pjsNHrcm5wTMdPM3sl8h8VEYpMRLwgth" target="_blank" rel="noopener" class="btn project-link">View Design</a>
                                 </div>
                             </div>
 
                             <div class="swiper-slide box">
-                              <div class="img-wrapper"> <!--brass band pic-->
-                                  <img src="https://drive.google.com/file/d/1-mwkfKBP4fOoCZZjHEpkv8Onu7t-p_gy/view?usp=sharing" alt=""> 
-                                  <a href="https://drive.google.com/uc?export=view&id=1-mwkfKBP4fOoCZZjHEpkv8Onu7t-p_gy" target="_blank" class="btn"> <p>View Design</p> </a>
+                              <div class="img-wrapper">
+                                  <img src="./img/fin brass.jpeg" alt="Brass band design">
+                                  <a href="https://drive.google.com/uc?export=view&id=1-mwkfKBP4fOoCZZjHEpkv8Onu7t-p_gy" target="_blank" rel="noopener" class="btn project-link">View Design</a>
                               </div>
                             </div>
 
                             <div class="swiper-slide box">
-                              <div class="img-wrapper"> <!--Shades of Tendo-->
-                                  <img src="https://drive.google.com/file/d/1q-UmiiE89UQSlkiYhfQ52gF0tZdpGSBU/view?usp=sharing" alt=""> 
-                                  <a href="https://drive.google.com/uc?export=view&id=1q-UmiiE89UQSlkiYhfQ52gF0tZdpGSBU" target="_blank" class="btn"> <p>View Design</p> </a>
+                              <div class="img-wrapper">
+                                  <img src="./img/Shades Of T.JPG" alt="Shades of Tendo design">
+                                  <a href="https://drive.google.com/uc?export=view&id=1q-UmiiE89UQSlkiYhfQ52gF0tZdpGSBU" target="_blank" rel="noopener" class="btn project-link">View Design</a>
                               </div>
                             </div>
 
                             <div class="swiper-slide box">
-                              <div class="img-wrapper"> <!--Acclaim 2024-->
-                                  <img src="https://drive.google.com/file/d/1HBh8cFCghu4I5ztCTYT749sOuh2CVcO1/view?usp=sharing" alt=""> 
-                                  <a href="https://drive.google.com/uc?export=view&id=1HBh8cFCghu4I5ztCTYT749sOuh2CVcO1" target="_blank" class="btn"> <p>View Design</p> </a>
+                              <div class="img-wrapper">
+                                  <img src="./img/Acclaim.jpeg" alt="Acclaim 2024 design">
+                                  <a href="https://drive.google.com/uc?export=view&id=1HBh8cFCghu4I5ztCTYT749sOuh2CVcO1" target="_blank" rel="noopener" class="btn project-link">View Design</a>
                               </div>
                             </div>
 
                             <div class="swiper-slide box">
-                              <div class="img-wrapper"> <!--Location 3D-->
-                                  <img src="https://drive.google.com/file/d/11BGI-6PmDfMi4-hKa6ntasAAxl5vjwQn/view?usp=sharing" alt=""> 
-                                  <a href="https://drive.google.com/fuc?export=view&id=11BGI-6PmDfMi4-hKa6ntasAAxl5vjwQn" target="_blank" class="btn"> <p>View Design</p> </a>
+                              <div class="img-wrapper">
+                                  <img src="./img/location-symbol-with-building.jpg" alt="Location 3D design">
+                                  <a href="https://drive.google.com/uc?export=view&id=11BGI-6PmDfMi4-hKa6ntasAAxl5vjwQn" target="_blank" rel="noopener" class="btn project-link">View Design</a>
                               </div>
                             </div>
 
                             <div class="swiper-slide box">
                                 <div class="img-wrapper">
-                                    <img src="./img/exo.jpg" alt="">
-                                    <a href="https://drive.google.com/uc?export=view&id=1e951Y09k-rvkwDIH_xvdaIcIx9GTGVzs" target="_blank" class="btn"> <p>View Design</p> </a>
+                                    <img src="./img/exo.jpg" alt="Exo design">
+                                    <a href="https://drive.google.com/uc?export=view&id=1e951Y09k-rvkwDIH_xvdaIcIx9GTGVzs" target="_blank" rel="noopener" class="btn project-link">View Design</a>
                                 </div>
                             </div>
 
                             <div class="swiper-slide box">
                                 <div class="img-wrapper">
-                                    <img src="./img/fin.jpg" alt="">
-                                    <a href="https://drive.google.com/uc?export=view&id=1snL9gWC85ecccsAQJbTjBWaNhMkFZYeb" target="_blank" class="btn"> <p>View Design</p> </a>
+                                    <img src="./img/fin.jpg" alt="Fin design">
+                                    <a href="https://drive.google.com/uc?export=view&id=1snL9gWC85ecccsAQJbTjBWaNhMkFZYeb" target="_blank" rel="noopener" class="btn project-link">View Design</a>
                                 </div>
                             </div>
 
                             <div class="swiper-slide box">
                                 <div class="img-wrapper">
-                                    <img src="./img/dp.jpg" alt="">
-                                    <a href="https://drive.google.com/uc?export=view&id=18paML7xPerq93vtYp0APYrgM09CXlSJ7" target="_blank" class="btn"> <p>View Design</p> </a>
+                                    <img src="./img/dp.jpg" alt="DP design">
+                                    <a href="https://drive.google.com/uc?export=view&id=18paML7xPerq93vtYp0APYrgM09CXlSJ7" target="_blank" rel="noopener" class="btn project-link">View Design</a>
                                 </div>
                             </div>
 
                             <div class="swiper-slide box">
                                 <div class="img-wrapper">
-                                    <img src="./img/egl2.jpg" alt="">
-                                    <a href="https://drive.google.com/uc?export=view&id=1qr-a1TSTASEKUUezp1dWbbzqL--EjHHn" target="_blank" class="btn"> <p>View Design</p> </a>
+                                    <img src="./img/egl2.jpg" alt="EGL design">
+                                    <a href="https://drive.google.com/uc?export=view&id=1qr-a1TSTASEKUUezp1dWbbzqL--EjHHn" target="_blank" rel="noopener" class="btn project-link">View Design</a>
                                 </div>
                             </div>
 
                             <div class="swiper-slide box">
                                 <div class="img-wrapper">
-                                    <img src="./img/Shopping China Logo.jpg" alt="">
-                                    <a href="https://drive.google.com/uc?export=view&id=1VamRjCCPcKUQTuLSS2CJFNdo6IZuPGE6" target="_blank" class="btn"> <p>View Design</p> </a>
+                                    <img src="./img/Shopping China Logo.jpg" alt="Shopping China logo">
+                                    <a href="https://drive.google.com/uc?export=view&id=1VamRjCCPcKUQTuLSS2CJFNdo6IZuPGE6" target="_blank" rel="noopener" class="btn project-link">View Design</a>
                                 </div>
                             </div>
 
                             <div class="swiper-slide box">
                                 <div class="img-wrapper">
-                                    <img src="./img/SOL Bible camp png.png.jpg" alt="">
-                                    <a href="https://drive.google.com/uc?export=view&id=17mazQoGq79dSTBR8dmsncBpTYd706D0J" target="_blank" class="btn"> <p>View Design</p> </a>
+                                    <img src="./img/SOL Bible camp png.png.jpg" alt="SOL Bible camp design">
+                                    <a href="https://drive.google.com/uc?export=view&id=17mazQoGq79dSTBR8dmsncBpTYd706D0J" target="_blank" rel="noopener" class="btn project-link">View Design</a>
                                 </div>
                             </div>
 
                             <div class="swiper-slide box">
                                 <div class="img-wrapper">
-                                    <img src="./img/poh Logo.jpg" alt="">
-                                    <a href="https://drive.google.com/uc?export=view&id=1PiqnIJNV8WCKYBzCeNbk9rLl4li-yLno" target="_blank" class="btn"> <p>View Design</p> </a>
+                                    <img src="./img/poh Logo.jpg" alt="POH logo">
+                                    <a href="https://drive.google.com/uc?export=view&id=1PiqnIJNV8WCKYBzCeNbk9rLl4li-yLno" target="_blank" rel="noopener" class="btn project-link">View Design</a>
                                 </div>
                             </div>
 
                             <div class="swiper-slide box">
                                 <div class="img-wrapper">
-                                    <img src="./img/bent.jpg" alt="">
-                                    <a href="https://drive.google.com/uc?export=view&id=16qt-53UKB3kOjAqTlmbNEcDvsze5jp5K" target="_blank" class="btn"> <p>View Design</p> </a>
+                                    <img src="./img/bent.jpg" alt="Bent design">
+                                    <a href="https://drive.google.com/uc?export=view&id=16qt-53UKB3kOjAqTlmbNEcDvsze5jp5K" target="_blank" rel="noopener" class="btn project-link">View Design</a>
                                 </div>
                             </div>
 
                             <div class="swiper-slide box">
                                 <div class="img-wrapper">
-                                    <img src="./img/timmy Sax.jpg" alt="">
-                                    <a href="https://drive.google.com/uc?export=view&id=1V2vafk5iOQDGfr1mnQ-ERj2PKZI70-Cj" target="_blank" class="btn"> <p>View Design</p> </a>
+                                    <img src="./img/timmy Sax.jpg" alt="Timmy Sax design">
+                                    <a href="https://drive.google.com/uc?export=view&id=1V2vafk5iOQDGfr1mnQ-ERj2PKZI70-Cj" target="_blank" rel="noopener" class="btn project-link">View Design</a>
                                 </div>
                             </div>
 
                             <div class="swiper-slide box">
                                 <div class="img-wrapper">
-                                    <img src="./img/job.jpg" alt="">
-                                    <a href="" target="_blank" class="btn"> <p>View Design</p> </a>
+                                    <img src="./img/job.jpg" alt="Job design">
+                                    <a href="./img/job.jpg" target="_blank" rel="noopener" class="btn project-link">View Design</a>
                                 </div>
                             </div>
 
                             <div class="swiper-slide box">
                                 <div class="img-wrapper">
-                                    <img src="./img/dad.jpg" alt="">
-                                    <a href="https://drive.google.com/uc?export=view&id=1iuIVuqs0FmRJUAfm0YV8Xhi832n34ijq" target="_blank" class="btn"> <p>View Design</p> </a>
+                                    <img src="./img/dad.jpg" alt="Dad design">
+                                    <a href="https://drive.google.com/uc?export=view&id=1iuIVuqs0FmRJUAfm0YV8Xhi832n34ijq" target="_blank" rel="noopener" class="btn project-link">View Design</a>
                                 </div>
                             </div>
-                            <!-- Add more slides for Graphics -->
                         </div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-pagination"></div>
                     </div>
                 </div>
               </div>
@@ -634,140 +702,132 @@
               <div class="category videography">
                   <h3>Videos</h3>
                   <div class="content-wrapper">
-                      <div class="swiper review-slider" id="videography">
+                      <div class="swiper review-slider project-slider" id="videography">
                           <div class="swiper-wrapper">
                               <div class="swiper-slide box">
                                   <div class="img-wrapper">
-                                      <video controls>
-                                          <source src="./img/ROS puzzle.mp4" type="video/mp4">
-                                          Your browser does not support the video tag.
-                                      </video>
-                                      <p>ROS project task (moving the tuttle bot out of a maze)
-                                        utilizing OOP, python classes and Libraries. View it <a href="https://app.theconstruct.ai/Desktop" target="_blank">here...</a>
-                                      </p>
+                                      <img src="./img/ROS_Puzzle.JPG" alt="ROS puzzle project preview">
+                                      <p>ROS project task (moving the turtle bot out of a maze).</p>
+                                      <a href="https://drive.google.com/file/d/1wXMGPaMuy_TNfnQ-5mjPRoIWA2rusD1N/view?usp=sharing" target="_blank" rel="noopener" class="btn project-link">View Video</a>
                                   </div>
                               </div>
                               <div class="swiper-slide box">
                                   <div class="img-wrapper">
-                                      <video controls>
-                                          <source src="./img/Online Groccery.mp4" type="video/mp4">
-                                          Your browser does not support the video tag.
-                                      </video>
-                                      <p>An online Groccery Store with HTML,CSS,JS. utilizing CDN CSS swiper Libraries.
-                                        View full site <a href="https://online-groccery.vercel.app/" target="_blank">here...</a>
-                                      </p>
+                                      <img src="./img/Grocco home.jpg" alt="Online Groccery demo preview">
+                                      <p>Online Groccery Store demo video.</p>
+                                      <a href="https://drive.google.com/file/d/19zksAIiRyrO0dKCtgDCzkCDJdsy_Gy9A/view?usp=sharing" target="_blank" rel="noopener" class="btn project-link">View Video</a>
                                   </div>
                               </div>
                               <div class="swiper-slide box">
                                   <div class="img-wrapper">
-                                      <video controls>
-                                          <source src="./img/conference with motion graphics.mp4" type="video/mp4">
-                                          Your browser does not support the video tag.
-                                      </video>
-                                      <p>Church commercial with motion graphics using Adobe Premier Pro.
-                                        View it <a href="https://drive.google.com/file/d/1elIhd4aKb2CXsPwR1Zp-PTjxpcTJFlmI/preview" target="_blank">here...</a>
-                                      </p>
+                                      <img src="./img/church_commercial.jpg" alt="Church commercial preview">
+                                      <p>Church commercial with motion graphics.</p>
+                                      <a href="https://drive.google.com/file/d/1elIhd4aKb2CXsPwR1Zp-PTjxpcTJFlmI/view?usp=sharing" target="_blank" rel="noopener" class="btn project-link">View Video</a>
                                   </div>
                               </div>
                               <div class="swiper-slide box">
                                   <div class="img-wrapper">
-                                      <video controls>
-                                          <source src="./img/ROS puzzle.mp4" type="video/mp4">
-                                          Your browser does not support the video tag.
-                                      </video>
-                                      <p>ROS project task (moving the tuttle bot out of a maze)
-                                        utilizing OOP, python classes and Libraries. View Proj <a href="https://drive.google.com/file/d/1wXMGPaMuy_TNfnQ-5mjPRoIWA2rusD1N/preview" target="_blank">here...</a>
-                                      </p>
+                                      <img src="./img/studio_MarkLanga.JPG" alt="Studio production - Mark Langa medley preview">
+                                      <p>Studio Productions — Mark Langa medley.</p>
+                                      <a href="https://youtu.be/NKIaJsjAy0Y?si=hjGlTooZ7d-853ZW" target="_blank" rel="noopener" class="btn project-link">View Video</a>
                                   </div>
                               </div>
                               <div class="swiper-slide box">
                                   <div class="img-wrapper">
-                                      <video controls>
-                                          <source src="./img/_nungamya medley_ Mark Langa.mp4" type="video/mp4">
-                                          Your browser does not support the video tag.
-                                      </video>
-                                      <p>Studio Productions.
-                                        View youtube Channel <a href="https://youtu.be/NKIaJsjAy0Y?si=hjGlTooZ7d-853ZW" target="_blank">here...</a>
-                                      </p>
+                                      <img src="./img/What_did_I_do-StudioPrdn.JPG" alt="Studio production - What did I do preview">
+                                      <p>Studio Productions — What did I do.</p>
+                                      <a href="https://youtu.be/Kx0IkjXXQHI?si=Dzq9-NiHv1sbOus5" target="_blank" rel="noopener" class="btn project-link">View Video</a>
                                   </div>
                               </div>
-                              <div class="swiper-slide box">
-                                  <div class="img-wrapper">
-                                      <video controls>
-                                          <source src="./img/_ekisa nga kyingi_ Leah K UG.mp4" type="video/mp4">
-                                          Your browser does not support the video tag.
-                                      </video>
-                                      <p>Studio Productions.
-                                        View youtube Channel <a href="https://youtu.be/Kx0IkjXXQHI?si=Dzq9-NiHv1sbOus5" target="_blank">here...</a>
-                                      </p>
-                                  </div>
-                              </div>
-                              <!-- Add more slides for Videography -->
                           </div>
+                          <div class="swiper-button-prev"></div>
+                          <div class="swiper-button-next"></div>
+                          <div class="swiper-pagination"></div>
                       </div>
                   </div>
               </div>
           </div>
-      </div>
+          </div>
+        </section>
 
 
 
     <!-- footer section starts -->
-    <section class="footer">
+    <section class="footer page-section inner-page" id="contact">
+      <div class="section-header">
+        <button class="back-home" data-section="home"><i class="fas fa-arrow-left"></i> Home</button>
+        <h2>Contact</h2>
+      </div>
 
+      <div class="inner-panel contact-panel">
       <div class="box-container">
         
         <div class="box">
-            <h3> -xristeck.co-</h3>
-            <!--<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, nostrum?</p>-->
+            <h3>-xhristoz-</h3>
             <div class="share">
-                <a href="https://replit.com/@-XrisTeck-" class="fab fa-facebook-f"></a>
-                <a href="https://www.linkedin.com/in/ddamulira-grace-xristeck-/" class="fab fa-linkedin"></a>
-                <a href="https://github.com/XrisTeck" class="fab fa-github"></a>
+                <a href="https://replit.com/@-XrisTeck-" class="fab fa-facebook-f" aria-label="Facebook"></a>
+                <a href="https://www.linkedin.com/in/ddamulira-grace-xristeck-/" class="fab fa-linkedin" aria-label="LinkedIn"></a>
+                <a href="https://github.com/XrisTeck" class="fab fa-github" aria-label="GitHub"></a>
             </div>
         </div>
 
 
         <div class="box">
-                <!--<h3>contact info</h3>-->
-                <a href="#" class="links"> <i class="fas fa-phone"></i> +256-788-195-067 </a>
-                <a href="#" class="links"> <i class="fas fa-envelope"></i>damzchristo@gmail.com </a>
+                <a href="tel:+256788195067" class="links"> <i class="fas fa-phone"></i> +256-788-195-067 </a>
+                <a href="mailto:damzchristo@gmail.com" class="links"> <i class="fas fa-envelope"></i> damzchristo@gmail.com </a>
                 <a href="#" class="links"> <i class="fas fa-map-marker-alt"></i> Kampala, Uganda </a>
             </div>
           
 
             <div class="box">
-                <a href="#about" class="links"> <i class="fas fa-arrow-right"></i> About </a>
-                <a href="#services" class="links"> <i class="fas fa-arrow-right"></i> Services</a>
-                <a href="#skills" class="links"> <i class="fas fa-arrow-right"></i>Skills </a>
-                <a href="#experience" class="links"> <i class="fas fa-arrow-right"></i> Experience </a>
-                <a href="#review" class="links"> <i class="fas fa-arrow-right"></i> Projects </a>
+                <a href="#" data-section="about" class="links nav-link"> <i class="fas fa-arrow-right"></i> About </a>
+                <a href="#" data-section="services" class="links nav-link"> <i class="fas fa-arrow-right"></i> Services</a>
+                <a href="#" data-section="skills" class="links nav-link"> <i class="fas fa-arrow-right"></i>Skills </a>
+                <a href="#" data-section="experience" class="links nav-link"> <i class="fas fa-arrow-right"></i> Experience </a>
+                <a href="#" data-section="review" class="links nav-link"> <i class="fas fa-arrow-right"></i> Projects </a>
             </div>
 
 
             <div class="box">
                 <h3>Contact me</h3>
-                <form action="mailto:damzchristo@gmail.com" method="POST" enctype="text/plain">
-                  <input type="email" id="email" placeholder="email" name="email" required>
-          
-                  <textarea id="message" placeholder="your message" name="message" rows="4" cols="50" required></textarea><br><br>
-          
+                <form id="contactForm">
+                  <input type="email" id="contact-email" placeholder="email" name="email" required>
+                  <textarea id="contact-message" placeholder="your message" name="message" rows="4" required></textarea>
                   <input type="submit" value="send" class="submit-btn">
               </form>
-                
             </div>
 
       </div>
 
-      <div class="credits">&copy; 2023<span>-xristeck-</span> | all rights reserved</div>
+      <div class="credits">&copy; 2026 <span>-xhristoz-</span> | all rights reserved</div>
+      </div>
     </section>
     <!-- footer section ends -->
 
     </main>
 
+    <nav class="nav-dock" aria-label="Portfolio navigation">
+      <div class="nav-dock-inner">
+        <div class="nav-search">
+          <input type="text" id="navSearch" placeholder="Search sections & content — e.g. web dev, react, coffee shop..." autocomplete="off">
+          <button class="nav-search-btn" id="navSearchBtn" aria-label="Search">
+            <i class="fas fa-arrow-up"></i>
+          </button>
+        </div>
+        <p class="nav-search-feedback" id="navSearchFeedback" role="status" aria-live="polite" hidden></p>
+        <div class="nav-pills">
+          <button class="nav-pill" data-section="about"><i class="fas fa-file-alt"></i> About</button>
+          <button class="nav-pill" data-section="services"><i class="fas fa-cogs"></i> Services</button>
+          <button class="nav-pill" data-section="skills"><i class="fas fa-sliders-h"></i> Skills</button>
+          <button class="nav-pill" data-section="experience"><i class="fas fa-briefcase"></i> Experience</button>
+          <button class="nav-pill" data-section="review"><i class="fas fa-layer-group"></i> Projects</button>
+          <button class="nav-pill" data-section="contact"><i class="fas fa-envelope"></i> Contact</button>
+          <a class="nav-pill nav-pill-resume" href="https://drive.google.com/file/d/1irAAUbJgT9n5ek_9WzVq3ykt6CI_W9wl/preview" target="_blank" rel="noopener"><i class="fas fa-file-download"></i> Resume</a>
+        </div>
+        <p class="nav-hint">You can ask me about : web dev · design · experience · projects · contact</p>
+      </div>
+    </nav>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.css"> <!-- Include Swiper CSS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script> <!-- Load Swiper JS -->
-    <script src="./opt2.js"></script> <!-- Load your custom JS -->
+    <script src="./opt2.js"></script>
   </body>
 </html>
